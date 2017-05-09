@@ -24,7 +24,6 @@ class HomePageViewController: BaseViewController ,UITableViewDelegate, UITableVi
     let cellID = "AppItemCell"
     
     
-    
     // MARK:- 生命周期
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,7 +126,6 @@ class HomePageViewController: BaseViewController ,UITableViewDelegate, UITableVi
     func numberOfSections(in tableView: UITableView) -> Int {
         
         return appListArray.count
-//        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

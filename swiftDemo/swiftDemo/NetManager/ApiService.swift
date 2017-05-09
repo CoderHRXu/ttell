@@ -27,7 +27,7 @@ extension ApiServiceUrl : TargetType{
 
     var baseURL : URL {
     
-        return URL(string: "https://172.16.88.230:8383/apiv1/")!
+        return URL(string: "https://172.16.88.230:8484/apiv1/")!
     }
     
     var path :String {
