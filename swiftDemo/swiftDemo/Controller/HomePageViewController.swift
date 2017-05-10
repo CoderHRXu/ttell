@@ -81,7 +81,7 @@ class HomePageViewController: BaseViewController ,UITableViewDelegate, UITableVi
  
         
         
-        provider.request(.allAppListUrl(platform: 1, pageNo: 1, pageSize: 1)) { (result) in
+        provider.request(.allAppListUrl(platform: 1, pageNo: 1, pageSize: 10)) { (result) in
             
             switch result{
             
@@ -135,7 +135,7 @@ class HomePageViewController: BaseViewController ,UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID) as! AppItemCell
-        let item = appListArray[indexPath.row]
+        let item = appListArray[indexPath.section]
         cell.appItem = item;
         return cell
         
@@ -151,6 +151,15 @@ class HomePageViewController: BaseViewController ,UITableViewDelegate, UITableVi
         let header              = UIView.init(frame: CGRect.init(x: 0, y: 0, width: self.view.bounds.width, height: 10))
         header.backgroundColor  = UIColor.clear
         return header
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let vc              = AppDetailViewController()
+        let item            = appListArray[indexPath.section]
+        vc.prodTypeNum      = item.prodType
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
 }
