@@ -13,7 +13,7 @@ class BaseViewController: UIViewController {
     // MARK:- 生命周期
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 
@@ -24,7 +24,7 @@ class BaseViewController: UIViewController {
     
 
     // MARK:- UI
-    
+   
     /// 设置导航条左键头返回
     func setNaviBackBtn() {
         

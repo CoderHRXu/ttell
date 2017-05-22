@@ -19,11 +19,11 @@ class AppDetailViewController: BaseViewController,UITableViewDataSource,UITableV
     // MARK:- 属性
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var titleView: UIView!
-    @IBOutlet weak var blueLineLeadingCons: NSLayoutConstraint!
+    @IBOutlet weak var titileLine: UIView!
     
     var allApplist : [AppItem]!
     var versionArray :[String]!
-    var dictArray : [String : [AppItem]]!
+    var dictArray :  [ Dictionary<String,Array<AppItem>>]!
     var lastClickBtn : UIButton!
     
     
@@ -72,21 +72,79 @@ class AppDetailViewController: BaseViewController,UITableViewDataSource,UITableV
        
     }
     
-    // MARK:- 初始化数据
+    // MARK:- 数据处理
     func setupData() {
         
         self.allApplist     = []
         self.versionArray   = []
-        self.dictArray      = [:]
+        self.dictArray      = []
     }
+    
+    func handleData() {
+        
+        if self.allApplist.count == 0 {
+            
+            self.tableView.reloadData()
+            return
+        }
+        
+        
+        for item in self.allApplist {
+            
+            
+            // 收集不同版本号
+            var isRepeat = false
+            
+            for versionStr in self.versionArray {
+                
+                if versionStr == item.version {
+                    isRepeat = true
+                }
+                break
+            }
+            
+            if isRepeat == false {
+                self.versionArray.append(item.version)
+            }
+         
+            // 收集各个版本号下面的模型数据
+            for versionStr in self.versionArray {
+                
+                var dict = Dictionary<String,[AppItem]>()
+                var valueArr = [AppItem]()
+                
+                for appItem in self.allApplist {
+                    
+                    if versionStr == appItem.version {
+                        
+                        valueArr.append(appItem)
+                    }
+                }
+                
+                dict[versionStr] = valueArr
+                
+                self.dictArray.append(dict)
+
+            }
+            
+            tableView.reloadData()
+            
+            
+        }
+        
+        
+        
+    }
+    
+    
     
     // MARK:- 按钮事件
     @IBAction func titleBtnClick(_ btn: UIButton) {
         
         UIView.animate(withDuration: 0.3) {
             
-            self.blueLineLeadingCons.constant = CGFloat(btn.tag - 100) * self.view.bounds.width * 0.25
-            self.titleView.layoutIfNeeded()
+//            titileLine.center = CGPoint(x: btn.center.x, y: <#T##CGFloat#>)
+           self.titileLine.center.x = btn.center.x
         }
         
         self.envTypeNum = 1 + btn.tag - 100
@@ -102,19 +160,6 @@ class AppDetailViewController: BaseViewController,UITableViewDataSource,UITableV
     func queryAppDetail() {
         
         // 关闭证书验证
-//        let serverTrustPolicies: [String: ServerTrustPolicy] = [
-//            "172.16.88.230": .disableEvaluation
-//        ]
-//        
-//        let manager = Manager(
-//            configuration:.default,
-//            serverTrustPolicyManager:
-//            ServerTrustPolicyManager(policies: serverTrustPolicies)
-//        )
-//        
-//        let provider = MoyaProvider<ApiServiceUrl>(manager: manager, plugins: [NetworkLoggerPlugin(verbose: true
-//            )])
-
         let serverTrustPolicies: [String : ServerTrustPolicy] = ["172.16.88.230" : .disableEvaluation]
         
         let manager = Manager(configuration: .default, serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies))
@@ -132,6 +177,7 @@ class AppDetailViewController: BaseViewController,UITableViewDataSource,UITableV
                     if let appItemArray = [AppItem].deserialize(from: jsonStr, designatedPath: "data") {
                         
                         self.allApplist = appItemArray as! [AppItem];
+                        
                     }
                     self.tableView.dg_stopLoading()
                     
@@ -157,13 +203,26 @@ class AppDetailViewController: BaseViewController,UITableViewDataSource,UITableV
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5;
+        
+        let array      = self.dictArray[section]
+        return array.count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellID)
-        return cell! ;
+        let cell        = tableView.dequeueReusableCell(withIdentifier: cellID) as! AppItemCell
+        
+        if self.dictArray.count > 0 {
+            
+            let sectionDict    =  self.dictArray[indexPath.section]
+            var sectionArr  =  Array(sectionDict.values)
+            
+            let item = sectionArr[0][indexPath.row]
+            
+            cell.appItem = item
+        }
+
+        return cell;
     }
     
     

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,8 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AppDetailViewController" customModule="swiftDemo" customModuleProvider="target">
             <connections>
-                <outlet property="blueLineLeadingCons" destination="m8L-TM-iVu" id="QMK-a0-Asc"/>
                 <outlet property="tableView" destination="VKG-F0-mqp" id="yVL-On-4po"/>
+                <outlet property="titileLine" destination="vsa-2B-B0G" id="3fn-S5-JtF"/>
                 <outlet property="titleView" destination="2Gc-I2-oJ6" id="Pak-DM-Ddv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -27,7 +27,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vsa-2B-B0G" userLabel="blueline">
-                            <rect key="frame" x="0.0" y="39" width="94" height="1"/>
+                            <rect key="frame" x="10" y="39" width="74" height="1"/>
                             <color key="backgroundColor" red="0.16470588235294117" green="0.62352941176470589" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="HtL-0a-P4r"/>
@@ -85,7 +85,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="uOP-kU-gZr" firstAttribute="width" secondItem="hrN-d6-8Kr" secondAttribute="width" id="1st-Nb-xCi"/>
-                        <constraint firstItem="vsa-2B-B0G" firstAttribute="width" secondItem="2Gc-I2-oJ6" secondAttribute="width" multiplier="0.25" id="6Zk-BE-Y1r"/>
+                        <constraint firstItem="vsa-2B-B0G" firstAttribute="width" secondItem="2Gc-I2-oJ6" secondAttribute="width" multiplier="0.25" constant="-20" id="6Zk-BE-Y1r"/>
                         <constraint firstItem="hrN-d6-8Kr" firstAttribute="top" secondItem="2Gc-I2-oJ6" secondAttribute="top" id="NHH-NA-lMI"/>
                         <constraint firstItem="uOP-kU-gZr" firstAttribute="top" secondItem="2Gc-I2-oJ6" secondAttribute="top" id="QS3-LW-N7d"/>
                         <constraint firstItem="SuT-Sp-C4u" firstAttribute="width" secondItem="2Gc-I2-oJ6" secondAttribute="width" multiplier="0.25" id="REi-Jd-oX9"/>
@@ -96,7 +96,7 @@
                         <constraint firstItem="e1A-l4-LD3" firstAttribute="top" secondItem="2Gc-I2-oJ6" secondAttribute="top" id="j5k-lA-9ma"/>
                         <constraint firstItem="SuT-Sp-C4u" firstAttribute="top" secondItem="2Gc-I2-oJ6" secondAttribute="top" id="jXO-Ah-wER"/>
                         <constraint firstItem="hrN-d6-8Kr" firstAttribute="width" secondItem="SuT-Sp-C4u" secondAttribute="width" id="jsX-nt-lmo"/>
-                        <constraint firstItem="vsa-2B-B0G" firstAttribute="leading" secondItem="2Gc-I2-oJ6" secondAttribute="leading" id="m8L-TM-iVu"/>
+                        <constraint firstItem="vsa-2B-B0G" firstAttribute="leading" secondItem="2Gc-I2-oJ6" secondAttribute="leading" constant="10" id="m8L-TM-iVu"/>
                         <constraint firstAttribute="trailing" secondItem="e1A-l4-LD3" secondAttribute="trailing" id="oev-YN-El4"/>
                         <constraint firstItem="SuT-Sp-C4u" firstAttribute="leading" secondItem="2Gc-I2-oJ6" secondAttribute="leading" id="pAZ-6b-SlY"/>
                         <constraint firstAttribute="height" constant="40" id="pIo-AW-Se5"/>
