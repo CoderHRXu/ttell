@@ -30,7 +30,7 @@ class HomePageViewController: BaseViewController ,UITableViewDelegate, UITableVi
         title = "首页"
         appListArray = []
         self.setupTableView()
-        
+        self.queryAppList()
     }
     
     
@@ -60,7 +60,15 @@ class HomePageViewController: BaseViewController ,UITableViewDelegate, UITableVi
     
 
     }
+    @IBAction func cerBtnClick(_ sender: UIBarButtonItem) {
+        
+        UIApplication.shared.openURL(URL(string: "https://172.16.88.230:8383/cer/myCA.cer")!)
+
+        
+        
+    }
     
+
     // MARK:- 网络请求
     func queryAppList() {
         
@@ -158,8 +166,13 @@ class HomePageViewController: BaseViewController ,UITableViewDelegate, UITableVi
         let vc              = AppDetailViewController()
         let item            = appListArray[indexPath.section]
         vc.prodTypeNum      = item.prodType
+        vc.title            = item.displayName
         self.navigationController?.pushViewController(vc, animated: true)
         
+    }
+    
+    deinit {
+        tableView.dg_removePullToRefresh()
     }
     
 }

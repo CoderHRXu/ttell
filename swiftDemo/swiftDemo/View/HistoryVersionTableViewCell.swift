@@ -62,7 +62,7 @@ class HistoryVersionTableViewCell: UITableViewCell {
         let timeSta             = TimeInterval(timeStamp)
         let dfmatter            = DateFormatter()
         
-        dfmatter.dateFormat     = "MM-dd hh:mm"
+        dfmatter.dateFormat     = "MM-dd HH:mm"
         let date                = NSDate(timeIntervalSince1970: timeSta)
         return dfmatter.string(from: date as Date)
     }

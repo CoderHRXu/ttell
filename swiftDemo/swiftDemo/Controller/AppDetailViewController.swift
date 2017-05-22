@@ -17,19 +17,23 @@ import Format
 class AppDetailViewController: BaseViewController,UITableViewDataSource,UITableViewDelegate {
 
     // MARK:- 属性
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var titleView: UIView!
-    @IBOutlet weak var titileLine: UIView!
+    @IBOutlet weak private var tableView: UITableView!
+    @IBOutlet weak private var titleView: UIView!
+    @IBOutlet weak private var titileLine: UIView!
     
-    var allApplist : [AppItem]!
-    var versionArray :[String]!
-    var dictArray :  [ Dictionary<String,Array<AppItem>>]!
-    var lastClickBtn : UIButton!
+    private var allApplist : [AppItem]!
+    private var versionArray :[String]!  // 记录当前app有哪些版本
+    private var dataDict    :Dictionary<String, Array<AppItem>>!  // 存储对应版本号的appitems
+
+    
+    private var lastClickBtn : UIButton!
     
     
-    let btnGrayColor                = ColorFormatter().format("333333")
-    let btnBlueColor                = ColorFormatter().format("2A9FFE")
-    let cellID                      = "HistoryVersionTableViewCell"
+    private let btnGrayColor                = ColorFormatter().format("333333")
+    private let btnBlueColor                = ColorFormatter().format("2A9FFE")
+    private let cellID                      = "HistoryVersionTableViewCell"
+    
+    
     var prodTypeNum                 = Int()         // app 代号
     private     var envTypeNum      = 1             // 进入默认SIT
     private     var currentPageNum  = 1             // page
@@ -41,6 +45,7 @@ class AppDetailViewController: BaseViewController,UITableViewDataSource,UITableV
         self.setupData()
         self.setNaviBackBtn()
         self.setupTableView()
+        self.queryAppDetail()
         lastClickBtn = self.view.viewWithTag(100) as! UIButton
     }
 
@@ -71,26 +76,30 @@ class AppDetailViewController: BaseViewController,UITableViewDataSource,UITableV
         
        
     }
+
     
     // MARK:- 数据处理
     func setupData() {
         
         self.allApplist     = []
         self.versionArray   = []
-        self.dictArray      = []
+        self.dataDict       = [:]
+     
     }
     
     func handleData() {
         
-        if self.allApplist.count == 0 {
-            
+        guard self.allApplist.count != 0 else {
+            self.setupData()
             self.tableView.reloadData()
             return
         }
         
+        self.versionArray   = []
+        self.dataDict       = [:]
+        
         
         for item in self.allApplist {
-            
             
             // 收集不同版本号
             var isRepeat = false
@@ -99,41 +108,34 @@ class AppDetailViewController: BaseViewController,UITableViewDataSource,UITableV
                 
                 if versionStr == item.version {
                     isRepeat = true
+                    break
                 }
-                break
+                
             }
             
             if isRepeat == false {
                 self.versionArray.append(item.version)
             }
-         
-            // 收集各个版本号下面的模型数据
-            for versionStr in self.versionArray {
-                
-                var dict = Dictionary<String,[AppItem]>()
-                var valueArr = [AppItem]()
-                
-                for appItem in self.allApplist {
-                    
-                    if versionStr == appItem.version {
-                        
-                        valueArr.append(appItem)
-                    }
-                }
-                
-                dict[versionStr] = valueArr
-                
-                self.dictArray.append(dict)
-
-            }
-            
-            tableView.reloadData()
-            
-            
         }
         
-        
-        
+        // 收集各个版本号下面的模型数据
+        for versionStr in self.versionArray {
+            
+            var valueArr = [AppItem]()
+            
+            for appItem in self.allApplist {
+                
+                if versionStr == appItem.version {
+                    
+                    valueArr += [appItem]
+                }
+            }
+            
+//            self.dataDict.updateValue(valueArr, forKey: versionStr)
+            self.dataDict[versionStr] = valueArr
+        }
+
+        tableView.reloadData()
     }
     
     
@@ -143,7 +145,6 @@ class AppDetailViewController: BaseViewController,UITableViewDataSource,UITableV
         
         UIView.animate(withDuration: 0.3) {
             
-//            titileLine.center = CGPoint(x: btn.center.x, y: <#T##CGFloat#>)
            self.titileLine.center.x = btn.center.x
         }
         
@@ -153,6 +154,8 @@ class AppDetailViewController: BaseViewController,UITableViewDataSource,UITableV
         }
         btn.setTitleColor(btnBlueColor, for: .normal)
         lastClickBtn = btn
+        
+        self.queryAppDetail()
         
     }
     
@@ -176,7 +179,8 @@ class AppDetailViewController: BaseViewController,UITableViewDataSource,UITableV
                     print(jsonStr)
                     if let appItemArray = [AppItem].deserialize(from: jsonStr, designatedPath: "data") {
                         
-                        self.allApplist = appItemArray as! [AppItem];
+                        self.allApplist = appItemArray as! [AppItem]
+                        self.handleData()
                         
                     }
                     self.tableView.dg_stopLoading()
@@ -204,21 +208,20 @@ class AppDetailViewController: BaseViewController,UITableViewDataSource,UITableV
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        let array      = self.dictArray[section]
-        return array.count;
+        let verStr = self.versionArray[section]
+        let array  = self.dataDict[verStr]
+        return (array as AnyObject).count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell        = tableView.dequeueReusableCell(withIdentifier: cellID) as! AppItemCell
+        let cell        = tableView.dequeueReusableCell(withIdentifier: cellID) as! HistoryVersionTableViewCell
         
-        if self.dictArray.count > 0 {
+        if self.versionArray.count > 0 {
             
-            let sectionDict    =  self.dictArray[indexPath.section]
-            var sectionArr  =  Array(sectionDict.values)
-            
-            let item = sectionArr[0][indexPath.row]
-            
+            let verStr = self.versionArray[indexPath.section]
+            let array  = self.dataDict[verStr]!
+            let item   = array[indexPath.row];
             cell.appItem = item
         }
 
@@ -243,9 +246,8 @@ class AppDetailViewController: BaseViewController,UITableViewDataSource,UITableV
         versionLabel.textColor          = ColorFormatter().format("1B99FF")
         
         
-        versionLabel.text               = "versionTest"
-//        let dic = self.formattedDataArr[section]
-//        versionLabel.text = "  " + Array(dic.keys)[0]
+        let verStr = self.versionArray[section]
+        versionLabel.text = "  " + verStr
         
         headerView.addSubview(versionLabel)
         
@@ -259,4 +261,28 @@ class AppDetailViewController: BaseViewController,UITableViewDataSource,UITableV
 
         
     }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let verStr = self.versionArray[indexPath.section]
+        let array  = self.dataDict[verStr]!
+        let item   = array[indexPath.row];
+        let url = URL(string: item.downloadUrl)!
+        
+        if (UIApplication.shared.canOpenURL(url)) {
+            
+            UIApplication.shared.openURL(url)
+        }else{
+            print("URL有误")
+        }
+        
+    }
+    
+    
+    
+    deinit {
+        tableView.dg_removePullToRefresh()
+    }
+    
 }
