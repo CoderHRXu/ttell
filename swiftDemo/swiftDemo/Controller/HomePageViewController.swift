@@ -65,7 +65,7 @@ class HomePageViewController: BaseViewController ,UITableViewDelegate, UITableVi
     }
     @IBAction func cerBtnClick(_ sender: UIBarButtonItem) {
         
-        UIApplication.shared.openURL(URL(string: "https://172.16.88.230:8874/cer/myCA.cer")!)
+        UIApplication.shared.openURL(URL(string: "https://172.16.88.230:8874/cer/pubCer/selfSigned_pubCA.cer")!)
 
         
         
