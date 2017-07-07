@@ -12,20 +12,21 @@ import Foundation
 
 class AppItem: BaseBean {
     
-    var appIdentifier : String!
-    var buildVersion : String!
-    var changeLog : String?
-    var createdDate : Int!
-    var displayName : String!
-    var downloadUrl : String!
-    var envType : Int!
-    var fileSize : String!
-    var iconUrl : String!
-    var itemId : String!
-    var platform : Int!
-    var prodType : Int!
-    var updatedDate : Int64!
-    var version : String!
+    var appIdentifier   : String!
+    var buildVersion    : String!
+    var changeLog       : String?
+    var createdDate     : String!
+    var displayName     : String!
+    var downloadUrl     : String!
+    var envType         : Int!
+    var fileSize        : String!
+    var iconUrl         : String!
+    var itemId          : String!
+    var platform        : Int!
+    var prodType        : Int!
+    var version         : String!
+    var updatedDate     : String!
+    
     
     required init() {}
     

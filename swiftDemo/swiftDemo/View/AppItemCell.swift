@@ -48,7 +48,7 @@
                     
                 }
                 buildNumLabel.text          = item.buildVersion;
-                let timeStr                 = self.timeStampToString(timeStamp: item.updatedDate/1000)
+                let timeStr                 = self.timeStampToString(timeStamp: item.updatedDate)
                 updateDateLabel.text        = timeStr
                 let size : Double           = (item.fileSize as NSString).doubleValue
                 let sizeStr                 = String(format: "%.2f", size / 1024 / 1024)
@@ -94,14 +94,16 @@
         }
     }
     
-    private func timeStampToString(timeStamp:Int64)->String {
+    private func timeStampToString(timeStamp:String)->String {
         
-        let timeSta             = TimeInterval(timeStamp)
+        // 先把字符串转换成nsdate   2017-07-01T13:04:37.000Z
+        let formatter           = DateFormatter()
+        formatter.dateFormat    = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        let realDate            = formatter.date(from: timeStamp)
+
         let dfmatter            = DateFormatter()
-        
         dfmatter.dateFormat     = "MM-dd HH:mm"
-        let date                = NSDate(timeIntervalSince1970: timeSta)
-        return dfmatter.string(from: date as Date)
+        return dfmatter.string(from: realDate!)
     }
     
  }

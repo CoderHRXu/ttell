@@ -34,6 +34,9 @@ class HomePageViewController: BaseViewController ,UITableViewDelegate, UITableVi
     }
     
     
+    deinit {
+        tableView.dg_removePullToRefresh()
+    }
 
     // MARK:- UI
     func setupTableView() {
@@ -62,7 +65,7 @@ class HomePageViewController: BaseViewController ,UITableViewDelegate, UITableVi
     }
     @IBAction func cerBtnClick(_ sender: UIBarButtonItem) {
         
-        UIApplication.shared.openURL(URL(string: "https://172.16.88.230:8383/cer/myCA.cer")!)
+        UIApplication.shared.openURL(URL(string: "https://172.16.88.230:8874/cer/myCA.cer")!)
 
         
         
@@ -119,12 +122,7 @@ class HomePageViewController: BaseViewController ,UITableViewDelegate, UITableVi
                 
             }
             
-            
-            
         }
-        
-      
-        
         
     }
     
@@ -171,8 +169,5 @@ class HomePageViewController: BaseViewController ,UITableViewDelegate, UITableVi
         
     }
     
-    deinit {
-        tableView.dg_removePullToRefresh()
-    }
     
 }
