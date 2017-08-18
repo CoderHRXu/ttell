@@ -23,6 +23,7 @@
 		2394F7FE1EC0085D005DA9B9 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2394F7FD1EC0085D005DA9B9 /* ApiService.swift */; };
 		2394F8021EC01690005DA9B9 /* AppItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2394F8011EC01690005DA9B9 /* AppItem.swift */; };
 		2394F8041EC016D2005DA9B9 /* BaseBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2394F8031EC016D2005DA9B9 /* BaseBean.swift */; };
+		23CAE2101F46D8A800C75535 /* selfSigned_pubCA.cer in Resources */ = {isa = PBXBuildFile; fileRef = 23CAE20F1F46D8A800C75535 /* selfSigned_pubCA.cer */; };
 		5609F176BB6215A5DA649323 /* Pods_swiftDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 982272272F221315AE664773 /* Pods_swiftDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		2394F7FD1EC0085D005DA9B9 /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		2394F8011EC01690005DA9B9 /* AppItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppItem.swift; sourceTree = "<group>"; };
 		2394F8031EC016D2005DA9B9 /* BaseBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseBean.swift; sourceTree = "<group>"; };
+		23CAE20F1F46D8A800C75535 /* selfSigned_pubCA.cer */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = selfSigned_pubCA.cer; sourceTree = "<group>"; };
 		7D916D426836F54A5AE8449D /* Pods-swiftDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-swiftDemo/Pods-swiftDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		86A13D8C881537EE438D5B24 /* Pods-swiftDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-swiftDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-swiftDemo/Pods-swiftDemo.release.xcconfig"; sourceTree = "<group>"; };
 		982272272F221315AE664773 /* Pods_swiftDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_swiftDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				233794131EBAF959006A7DD4 /* AppDelegate.swift */,
+				23CAE20F1F46D8A800C75535 /* selfSigned_pubCA.cer */,
 				233794251EBAFB61006A7DD4 /* Controller */,
 				233794271EBAFB61006A7DD4 /* Model */,
 				233794281EBAFB61006A7DD4 /* NetManager */,
@@ -227,6 +230,7 @@
 				232D188A1EC06E97000F23BB /* AppItemCell.xib in Resources */,
 				233794321EBAFB61006A7DD4 /* Assets.xcassets in Resources */,
 				23494E0D1EC2E8D20095E092 /* HistoryVersionTableViewCell.xib in Resources */,
+				23CAE2101F46D8A800C75535 /* selfSigned_pubCA.cer in Resources */,
 				233794341EBAFB61006A7DD4 /* Main.storyboard in Resources */,
 				233794331EBAFB61006A7DD4 /* LaunchScreen.storyboard in Resources */,
 			);

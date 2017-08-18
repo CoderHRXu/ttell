@@ -165,7 +165,13 @@ class AppDetailViewController: BaseViewController,UITableViewDataSource,UITableV
         // 关闭证书验证
         let serverTrustPolicies: [String : ServerTrustPolicy] = ["172.16.88.230" : .disableEvaluation]
         
-        let manager = Manager(configuration: .default, serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies))
+        let path = Bundle.main .path(forResource: "selfSigned_pubCA.cer", ofType: nil)
+        let data = NSData(contentsOfFile: path!)
+        let certificates :[SecCertificate] = [data as! SecCertificate]
+        let policies : [String : ServerTrustPolicy] = ["172.16.88.230" : .pinCertificates(certificates: certificates, validateCertificateChain: true, validateHost: true)]
+        
+        
+        let manager = Manager(configuration: .default, serverTrustPolicyManager: ServerTrustPolicyManager(policies: policies))
         
         let provider = MoyaProvider<ApiServiceUrl>(manager: manager , plugins: [NetworkLoggerPlugin(verbose: true)])
         
