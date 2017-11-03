@@ -165,13 +165,21 @@ class AppDetailViewController: BaseViewController,UITableViewDataSource,UITableV
         // 关闭证书验证
         let serverTrustPolicies: [String : ServerTrustPolicy] = ["172.16.88.230" : .disableEvaluation]
         
-        let path = Bundle.main .path(forResource: "selfSigned_pubCA.cer", ofType: nil)
-        let data = NSData(contentsOfFile: path!)
-        let certificates :[SecCertificate] = [data as! SecCertificate]
-        let policies : [String : ServerTrustPolicy] = ["172.16.88.230" : .pinCertificates(certificates: certificates, validateCertificateChain: true, validateHost: true)]
+//        let path = Bundle.main.path(forResource: "selfSigned_pubCA.cer", ofType: nil)
+//        let certificateData = try? Data(contentsOf: URL(fileURLWithPath: path!)) as CFData
+//        guard let certificate = SecCertificateCreateWithData(nil, certificateData!) else {
+//            return
+//        }
+//        let policies : [String : ServerTrustPolicy] = ["172.16.88.230" : .pinCertificates(certificates: [certificate], validateCertificateChain: true, validateHost: true)]
+      
+        
+
         
         
-        let manager = Manager(configuration: .default, serverTrustPolicyManager: ServerTrustPolicyManager(policies: policies))
+//        let temp =  ServerTrustPolicy.certificates()
+//        let policies : [String : ServerTrustPolicy] = ["172.16.88.230" : .pinCertificates(certificates: ServerTrustPolicy.certificates(), validateCertificateChain: true, validateHost: true)]
+        
+        let manager = Manager(configuration: .default, serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies))
         
         let provider = MoyaProvider<ApiServiceUrl>(manager: manager , plugins: [NetworkLoggerPlugin(verbose: true)])
         
