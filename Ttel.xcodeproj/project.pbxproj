@@ -455,6 +455,9 @@
 							com.apple.GameCenter = {
 								enabled = 0;
 							};
+							com.apple.InterAppAudio = {
+								enabled = 0;
+							};
 							com.apple.Keychain = {
 								enabled = 0;
 							};

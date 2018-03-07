@@ -14,7 +14,7 @@ class NotificationService: UNNotificationServiceExtension {
     var contentHandler: ((UNNotificationContent) -> Void)?
     var bestAttemptContent: UNMutableNotificationContent?
 
-    lazy var speech : AVSpeechSynthesizer? = {
+    lazy var speech : AVSpeechSynthesizer = {
         let speech = AVSpeechSynthesizer.init()
         speech.delegate = self as AVSpeechSynthesizerDelegate
         return speech
@@ -50,18 +50,23 @@ class NotificationService: UNNotificationServiceExtension {
         // 要说的语种
         speechUtterance.voice = AVSpeechSynthesisVoice.init(language: "zh-CN")
         // 发音
-        self.speech?.speak(speechUtterance)
+        self.speech.speak(speechUtterance)
     }
     
     
     func stopRead() {
         
-        speech?.stopSpeaking(at: .immediate)
+        speech.stopSpeaking(at: .immediate)
     }
 }
 
 
 extension NotificationService : AVSpeechSynthesizerDelegate{
+    
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, willSpeakRangeOfSpeechString characterRange: NSRange, utterance: AVSpeechUtterance) {
+        
+        
+    }
     
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance) {
         print("开始读文字")
