@@ -8,12 +8,12 @@ import_from_git(url: 'http://gitlab.fclassroom.cn/iOS-Team/fastlane.git')
             development: true,
             output_path: "./apns/ttel/development"
             )
-        # pem(
-        #     app_identifier: "com.jike.teacher-dev",
-        #     p12_password: "jk123",
-        #     development: true,
-        #     output_path: "./apns/teacher-dev/development"
-        #     )
+        pem(
+            app_identifier: "com.fclassroom.ttel.PushServiceExtension",
+            p12_password: "jk123",
+            development: true,
+            output_path: "./apns/ttel-extension/development"
+            )
         # pem(
         #     app_identifier: "com.jike.teacher-agent",
         #     p12_password: "jk123",
@@ -25,11 +25,11 @@ import_from_git(url: 'http://gitlab.fclassroom.cn/iOS-Team/fastlane.git')
             p12_password: "jk123",
             output_path: "./apns/ttel/production"
             )
-        # pem(
-        #     app_identifier: "com.jike.teacher-dev",
-        #     p12_password: "jk123",
-        #     output_path: "./apns/teacher-dev/production"
-        #     )
+        pem(
+            app_identifier: "com.fclassroom.ttel.PushServiceExtension",
+            p12_password: "jk123",
+            output_path: "./apns/ttel-extension/production"
+            )
         # pem(
         #     app_identifier: "com.jike.teacher-agent",
         #     p12_password: "jk123",

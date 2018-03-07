@@ -10,7 +10,7 @@ app_name: Ttel
 # 工程里要用到的 bundle Id
 bundle_id:
   - com.fclassroom.ttel
-  - com.fclassroom.ttel.TtelServiceExtension-PRO
+  - com.fclassroom.ttel.PushServiceExtension
 
 
 ttel_product_id: 1031
