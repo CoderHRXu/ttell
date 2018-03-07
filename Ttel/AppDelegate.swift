@@ -56,7 +56,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         
         JPUSHService.registerDeviceToken(deviceToken)
-        
+        let data = NSData.init(data: deviceToken)
+        let datastr = data.description.replacingOccurrences(of: "<", with: "").replacingOccurrences(of: ">", with: "").replacingOccurrences(of: " ", with: "")
+        print("deviceToken为\n" + datastr)
         var jPushTag = String()
         
         #if SIT

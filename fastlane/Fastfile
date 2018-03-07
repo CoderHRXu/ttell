@@ -1,4 +1,40 @@
-import_from_git(url: 'http://MLRC080:rjs123@git.dev.rjs.com/iOS-Team/Fastlanes.git')
+import_from_git(url: 'http://gitlab.fclassroom.cn/iOS-Team/fastlane.git')
 
-
+	lane :pemInfo do |options|
+        
+        pem(
+            app_identifier: "com.fclassroom.ttel",
+            p12_password: "jk123",
+            development: true,
+            output_path: "./apns/ttel/development"
+            )
+        # pem(
+        #     app_identifier: "com.jike.teacher-dev",
+        #     p12_password: "jk123",
+        #     development: true,
+        #     output_path: "./apns/teacher-dev/development"
+        #     )
+        # pem(
+        #     app_identifier: "com.jike.teacher-agent",
+        #     p12_password: "jk123",
+        #     development: true,
+        #     output_path: "./apns/teacher-agent/development"
+        #     )
+        pem(
+            app_identifier: "com.fclassroom.ttel",
+            p12_password: "jk123",
+            output_path: "./apns/ttel/production"
+            )
+        # pem(
+        #     app_identifier: "com.jike.teacher-dev",
+        #     p12_password: "jk123",
+        #     output_path: "./apns/teacher-dev/production"
+        #     )
+        # pem(
+        #     app_identifier: "com.jike.teacher-agent",
+        #     p12_password: "jk123",
+        #     output_path: "./apns/teacher-agent/production"
+        #     )
+                 
+    end
 

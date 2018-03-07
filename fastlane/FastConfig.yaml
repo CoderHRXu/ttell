@@ -9,20 +9,16 @@ app_name: Ttel
 
 # 工程里要用到的 bundle Id
 bundle_id:
-  - cn.sunfit.ttel
-#  - cn.sunfit.ttel
+  - com.fclassroom.ttel
+  - com.fclassroom.ttel.TtelServiceExtension-PRO
 
-# Ttel中的产品 ID
-# 1001：贷贷通     1002：疾风
-# 1011：乐位      1012：顺位  1013：车生活
-# 1021：鲸知
-# 1031：Ttel
+
 ttel_product_id: 1031
 
 # 给 fastlane 的match action 使用
 match:
  # 证书和PP文件的Git仓库
- git_url: http://MLRC082:rjs123@git.dev.rjs.com/iOS-Team/Certificate.git
+ git_url: http://gitlab.fclassroom.cn/iOS-Team/certificates.git
  # 所在分支
  git_brunch: master
 
@@ -31,24 +27,24 @@ lane:
 
  sit:
    # 打SIT包要用到的 scheme
-   scheme: Ttel-SIT
-   app_identifier: cn.sunfit.ttel
+   scheme: Ttel-DEV
+   app_identifier: com.fclassroom.ttel
 
  uat:
    # 打UAT包要用到的 scheme
-  scheme: Ttel-SIT
-  app_identifier: cn.sunfit.ttel
+  scheme: Ttel-DEV
+  app_identifier: com.fclassroom.ttel
 
  pro:
    # 打PRO包要用到的 scheme
   scheme: Ttel-PRO
-  app_identifier: cn.sunfit.ttel
+  app_identifier: com.fclassroom.ttel
 
 #提审，上传到ITC
  dep:
   # 提审包使用的 scheme
   scheme: Ttel-PRO
   # 提审包使用的 bundle_id
-  app_identifier: cn.sunfit.ttel
+  app_identifier: com.fclassroom.ttel
   # ITC 开发者帐号
-  username: sunfitappleid@163.com
+  username: xuhaoran@fclassroom.com

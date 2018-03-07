@@ -52,6 +52,19 @@
 		EDAE860B1ED816F6006C37CF /* SendEmailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDAE86091ED816F6006C37CF /* SendEmailViewController.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		ADC2B2FD204E918600F76C45 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		2355F3DA1F7C9EFE002F3D68 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 		2355F3DB1F7C9EFE002F3D68 /* LeftMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftMenuViewController.xib; sourceTree = "<group>"; };
@@ -355,6 +368,7 @@
 				77519F6A8AF69E26C300E955 /* [CP] Embed Pods Frameworks */,
 				345735C94CBD2930172D9F02 /* [CP] Copy Pods Resources */,
 				23E6FF911FAAEE3C002A4A2D /* Update build number with buldTime */,
+				ADC2B2FD204E918600F76C45 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -371,13 +385,13 @@
 		59C64A6A1E9E2D1300474F05 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = Sunfit;
 				TargetAttributes = {
 					59C64A711E9E2D1300474F05 = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = 6JJXUE7L93;
+						DevelopmentTeam = JX333254R3;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
@@ -680,19 +694,21 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8DCD31DE0A48CF5D7F6002B3 /* Pods-Ttel.debug-sit.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Ttel/Supporting Files/Ttel.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 20180108.01;
-				DEVELOPMENT_TEAM = 6JJXUE7L93;
+				DEVELOPMENT_TEAM = JX333254R3;
 				INFOPLIST_FILE = "Ttel/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.sunfit.ttel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fclassroom.ttel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5e1fdad4-8ec3-48c0-8ced-1ed5da75c651";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development cn.sunfit.ttel";
+				PROVISIONING_PROFILE = "9d8ce7c6-9552-4271-92c6-3b80c7a58b28";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.fclassroom.ttel";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEV DEBUG";
 				SWIFT_OBJC_BRIDGING_HEADER = "Ttel/Supporting Files/Ttel-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -705,19 +721,21 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2ED8733016FD8C1008034ACE /* Pods-Ttel.release-sit.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Ttel/Supporting Files/Ttel.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CURRENT_PROJECT_VERSION = 20180108.01;
-				DEVELOPMENT_TEAM = 6JJXUE7L93;
+				DEVELOPMENT_TEAM = JX333254R3;
 				INFOPLIST_FILE = "Ttel/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.sunfit.ttel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fclassroom.ttel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1910bebb-1211-4004-a009-2c66367d8d99";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore cn.sunfit.ttel";
+				PROVISIONING_PROFILE = "2daaed65-5d4b-4c0b-81e3-495fadf04af7";
+				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.fclassroom.ttel";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "RELEASE DEV";
 				SWIFT_OBJC_BRIDGING_HEADER = "Ttel/Supporting Files/Ttel-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
@@ -779,19 +797,21 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EC2FA50E27D2F5A8EB186C5E /* Pods-Ttel.debug-pro.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Ttel/Supporting Files/Ttel.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 20180108.01;
-				DEVELOPMENT_TEAM = 6JJXUE7L93;
+				DEVELOPMENT_TEAM = JX333254R3;
 				INFOPLIST_FILE = "Ttel/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.sunfit.ttel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fclassroom.ttel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5e1fdad4-8ec3-48c0-8ced-1ed5da75c651";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development cn.sunfit.ttel";
+				PROVISIONING_PROFILE = "9d8ce7c6-9552-4271-92c6-3b80c7a58b28";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.fclassroom.ttel";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "PRO DEBUG";
 				SWIFT_OBJC_BRIDGING_HEADER = "Ttel/Supporting Files/Ttel-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -847,19 +867,21 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4E64EFD4604AD6770BAC6B43 /* Pods-Ttel.release-pro.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Ttel/Supporting Files/Ttel.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CURRENT_PROJECT_VERSION = 20180108.01;
-				DEVELOPMENT_TEAM = 6JJXUE7L93;
+				DEVELOPMENT_TEAM = JX333254R3;
 				INFOPLIST_FILE = "Ttel/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.sunfit.ttel;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fclassroom.ttel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1910bebb-1211-4004-a009-2c66367d8d99";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore cn.sunfit.ttel";
+				PROVISIONING_PROFILE = "2daaed65-5d4b-4c0b-81e3-495fadf04af7";
+				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.fclassroom.ttel";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "RELEASE PRO";
 				SWIFT_OBJC_BRIDGING_HEADER = "Ttel/Supporting Files/Ttel-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
