@@ -41,6 +41,8 @@
 		59A226771ED408A20098E734 /* AppVModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A226761ED408A20098E734 /* AppVModel.swift */; };
 		59A2267C1ED430CA0098E734 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59A2267B1ED430CA0098E734 /* Photos.framework */; };
 		59DAC9B71ED666D50009F0F6 /* Observable+HandJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DAC9B61ED666D50009F0F6 /* Observable+HandJSON.swift */; };
+		AD187371204FDBB700495539 /* yunlong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AD187370204FDB9E00495539 /* yunlong.mp3 */; };
+		AD187373204FE91000495539 /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD187372204FE90F00495539 /* iflyMSC.framework */; };
 		AD1FCDCC204F807C007879F3 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1FCDCB204F807C007879F3 /* NotificationService.swift */; };
 		AD1FCDD0204F807C007879F3 /* PushServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AD1FCDC9204F807C007879F3 /* PushServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E5E08076234B98C62A79CC4F /* Pods_Ttel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D195A6BDB2A29810977555D7 /* Pods_Ttel.framework */; };
@@ -123,6 +125,8 @@
 		59DAC9B61ED666D50009F0F6 /* Observable+HandJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+HandJSON.swift"; sourceTree = "<group>"; };
 		59F20E551EC4B5D600ACEBFD /* FastConfig.yaml */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = FastConfig.yaml; sourceTree = "<group>"; };
 		8DCD31DE0A48CF5D7F6002B3 /* Pods-Ttel.debug-sit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ttel.debug-sit.xcconfig"; path = "Pods/Target Support Files/Pods-Ttel/Pods-Ttel.debug-sit.xcconfig"; sourceTree = "<group>"; };
+		AD187370204FDB9E00495539 /* yunlong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = yunlong.mp3; sourceTree = "<group>"; };
+		AD187372204FE90F00495539 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
 		AD1FCDC9204F807C007879F3 /* PushServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PushServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD1FCDCB204F807C007879F3 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		AD1FCDCD204F807C007879F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -152,6 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD187373204FE91000495539 /* iflyMSC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +283,7 @@
 		59A226211ED3EEEC0098E734 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				AD187370204FDB9E00495539 /* yunlong.mp3 */,
 				59A2266F1ED405890098E734 /* AppIcon60x60@3x.png */,
 				595A0C7C1EDFC2230047816E /* CerInstallation.jpg */,
 			);
@@ -382,6 +388,7 @@
 		AD1FCDCA204F807C007879F3 /* PushServiceExtension */ = {
 			isa = PBXGroup;
 			children = (
+				AD187372204FE90F00495539 /* iflyMSC.framework */,
 				AD1FCDD6204F88C7007879F3 /* PushServiceExtension.entitlements */,
 				AD1FCDCB204F807C007879F3 /* NotificationService.swift */,
 				AD1FCDCD204F807C007879F3 /* Info.plist */,
@@ -520,6 +527,7 @@
 				ED7F16D91F61327000C0C2A2 /* HelpViewController.xib in Resources */,
 				595A0C7D1EDFC2230047816E /* CerInstallation.jpg in Resources */,
 				2355F3E11F7CF214002F3D68 /* AboutViewController.xib in Resources */,
+				AD187371204FDBB700495539 /* yunlong.mp3 in Resources */,
 				59A2263F1ED3EEEC0098E734 /* Info.plist in Resources */,
 				59A2263C1ED3EEEC0098E734 /* SettingViewController.xib in Resources */,
 			);
@@ -1018,6 +1026,10 @@
 				DEVELOPMENT_TEAM = JX333254R3;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PushServiceExtension",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1088,6 +1100,10 @@
 				DEVELOPMENT_TEAM = JX333254R3;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PushServiceExtension",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1158,6 +1174,10 @@
 				DEVELOPMENT_TEAM = JX333254R3;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PushServiceExtension",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1221,6 +1241,10 @@
 				DEVELOPMENT_TEAM = JX333254R3;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PushServiceExtension",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

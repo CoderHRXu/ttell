@@ -27,9 +27,9 @@ class NotificationService: UNNotificationServiceExtension {
         if let bestAttemptContent = bestAttemptContent {
             // Modify the notification content here...
             print("❤️"+bestAttemptContent.body)
-//            bestAttemptContent.title = "\(bestAttemptContent.title) [modified]"
+            bestAttemptContent.title = "李云龙❤️"
             readcontent(content: bestAttemptContent.body)
-            contentHandler(bestAttemptContent)
+            
         }
     }
     
@@ -74,5 +74,9 @@ extension NotificationService : AVSpeechSynthesizerDelegate{
     
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         print("文字读完毕")
+        if let bestAttemptContent = bestAttemptContent {
+            self.contentHandler!(bestAttemptContent)
+            
+        }
     }
 }
