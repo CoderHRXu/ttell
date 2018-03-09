@@ -45,6 +45,26 @@
 		AD187373204FE91000495539 /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD187372204FE90F00495539 /* iflyMSC.framework */; };
 		AD1FCDCC204F807C007879F3 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1FCDCB204F807C007879F3 /* NotificationService.swift */; };
 		AD1FCDD0204F807C007879F3 /* PushServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AD1FCDC9204F807C007879F3 /* PushServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AD3722CC20527D3700F45382 /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD187372204FE90F00495539 /* iflyMSC.framework */; };
+		AD3722CE20527E4F00F45382 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3722CD20527E4F00F45382 /* Contacts.framework */; };
+		AD3722D020527E5600F45382 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3722CF20527E5600F45382 /* AVFoundation.framework */; };
+		AD3722D220527E5F00F45382 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3722D120527E5E00F45382 /* CoreGraphics.framework */; };
+		AD3722D420527E6800F45382 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3722D320527E6800F45382 /* CoreLocation.framework */; };
+		AD3722D620527E7300F45382 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3722D520527E7300F45382 /* libz.tbd */; };
+		AD3722D820527E7E00F45382 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3722D720527E7E00F45382 /* AudioToolbox.framework */; };
+		AD3722DA20527E9000F45382 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3722D920527E9000F45382 /* QuartzCore.framework */; };
+		AD3722DC20527EA800F45382 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3722DB20527EA800F45382 /* AddressBook.framework */; };
+		AD3722DD20528B1F00F45382 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3722DB20527EA800F45382 /* AddressBook.framework */; };
+		AD3722DE20528B2500F45382 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3722CD20527E4F00F45382 /* Contacts.framework */; };
+		AD3722DF20528B2B00F45382 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3722D520527E7300F45382 /* libz.tbd */; };
+		AD3722E020528B3500F45382 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3722D320527E6800F45382 /* CoreLocation.framework */; };
+		AD3722E120528B3C00F45382 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3722CF20527E5600F45382 /* AVFoundation.framework */; };
+		AD3722E320528B5A00F45382 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3722D720527E7E00F45382 /* AudioToolbox.framework */; };
+		AD3722E420528B7200F45382 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3722D920527E9000F45382 /* QuartzCore.framework */; };
+		AD3722E520528B9A00F45382 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3722D120527E5E00F45382 /* CoreGraphics.framework */; };
+		AD3722E620528BB000F45382 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59A2267B1ED430CA0098E734 /* Photos.framework */; };
+		AD3722E820528BC500F45382 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3722E720528BC500F45382 /* CoreTelephony.framework */; };
+		AD3722EA20528C1300F45382 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3722E920528C1300F45382 /* SystemConfiguration.framework */; };
 		E5E08076234B98C62A79CC4F /* Pods_Ttel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D195A6BDB2A29810977555D7 /* Pods_Ttel.framework */; };
 		ED647A4E1ED6C9A3007536A8 /* SystemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED647A4D1ED6C9A3007536A8 /* SystemInfo.swift */; };
 		ED7F16D01F61228900C0C2A2 /* AppDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A226121ED3EEEC0098E734 /* AppDetailViewController.swift */; };
@@ -131,6 +151,17 @@
 		AD1FCDCB204F807C007879F3 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		AD1FCDCD204F807C007879F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD1FCDD6204F88C7007879F3 /* PushServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PushServiceExtension.entitlements; sourceTree = "<group>"; };
+		AD320321205161B200C27BB6 /* PushServiceExtension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PushServiceExtension-Bridging-Header.h"; sourceTree = "<group>"; };
+		AD3722CD20527E4F00F45382 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
+		AD3722CF20527E5600F45382 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		AD3722D120527E5E00F45382 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AD3722D320527E6800F45382 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		AD3722D520527E7300F45382 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		AD3722D720527E7E00F45382 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		AD3722D920527E9000F45382 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		AD3722DB20527EA800F45382 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		AD3722E720528BC500F45382 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		AD3722E920528C1300F45382 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D195A6BDB2A29810977555D7 /* Pods_Ttel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ttel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC2FA50E27D2F5A8EB186C5E /* Pods-Ttel.debug-pro.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ttel.debug-pro.xcconfig"; path = "Pods/Target Support Files/Pods-Ttel/Pods-Ttel.debug-pro.xcconfig"; sourceTree = "<group>"; };
 		ED647A4D1ED6C9A3007536A8 /* SystemInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemInfo.swift; sourceTree = "<group>"; };
@@ -147,6 +178,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD3722DC20527EA800F45382 /* AddressBook.framework in Frameworks */,
+				AD3722DA20527E9000F45382 /* QuartzCore.framework in Frameworks */,
+				AD3722D820527E7E00F45382 /* AudioToolbox.framework in Frameworks */,
+				AD3722D620527E7300F45382 /* libz.tbd in Frameworks */,
+				AD3722D420527E6800F45382 /* CoreLocation.framework in Frameworks */,
+				AD3722D220527E5F00F45382 /* CoreGraphics.framework in Frameworks */,
+				AD3722D020527E5600F45382 /* AVFoundation.framework in Frameworks */,
+				AD3722CE20527E4F00F45382 /* Contacts.framework in Frameworks */,
+				AD3722CC20527D3700F45382 /* iflyMSC.framework in Frameworks */,
 				59A2267C1ED430CA0098E734 /* Photos.framework in Frameworks */,
 				E5E08076234B98C62A79CC4F /* Pods_Ttel.framework in Frameworks */,
 			);
@@ -156,6 +196,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD3722EA20528C1300F45382 /* SystemConfiguration.framework in Frameworks */,
+				AD3722E820528BC500F45382 /* CoreTelephony.framework in Frameworks */,
+				AD3722E620528BB000F45382 /* Photos.framework in Frameworks */,
+				AD3722E520528B9A00F45382 /* CoreGraphics.framework in Frameworks */,
+				AD3722E420528B7200F45382 /* QuartzCore.framework in Frameworks */,
+				AD3722E320528B5A00F45382 /* AudioToolbox.framework in Frameworks */,
+				AD3722E120528B3C00F45382 /* AVFoundation.framework in Frameworks */,
+				AD3722E020528B3500F45382 /* CoreLocation.framework in Frameworks */,
+				AD3722DF20528B2B00F45382 /* libz.tbd in Frameworks */,
+				AD3722DE20528B2500F45382 /* Contacts.framework in Frameworks */,
+				AD3722DD20528B1F00F45382 /* AddressBook.framework in Frameworks */,
 				AD187373204FE91000495539 /* iflyMSC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,6 +430,16 @@
 		6770D4FBC3479AD276CFCAF5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AD3722E920528C1300F45382 /* SystemConfiguration.framework */,
+				AD3722E720528BC500F45382 /* CoreTelephony.framework */,
+				AD3722DB20527EA800F45382 /* AddressBook.framework */,
+				AD3722D920527E9000F45382 /* QuartzCore.framework */,
+				AD3722D720527E7E00F45382 /* AudioToolbox.framework */,
+				AD3722D520527E7300F45382 /* libz.tbd */,
+				AD3722D320527E6800F45382 /* CoreLocation.framework */,
+				AD3722D120527E5E00F45382 /* CoreGraphics.framework */,
+				AD3722CF20527E5600F45382 /* AVFoundation.framework */,
+				AD3722CD20527E4F00F45382 /* Contacts.framework */,
 				59A2267B1ED430CA0098E734 /* Photos.framework */,
 				D195A6BDB2A29810977555D7 /* Pods_Ttel.framework */,
 			);
@@ -392,6 +453,7 @@
 				AD1FCDD6204F88C7007879F3 /* PushServiceExtension.entitlements */,
 				AD1FCDCB204F807C007879F3 /* NotificationService.swift */,
 				AD1FCDCD204F807C007879F3 /* Info.plist */,
+				AD320321205161B200C27BB6 /* PushServiceExtension-Bridging-Header.h */,
 			);
 			path = PushServiceExtension;
 			sourceTree = "<group>";
@@ -479,6 +541,7 @@
 					AD1FCDC8204F807C007879F3 = {
 						CreatedOnToolsVersion = 9.2;
 						DevelopmentTeam = JX333254R3;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -801,6 +864,11 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 20180108.01;
 				DEVELOPMENT_TEAM = JX333254R3;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PushServiceExtension",
+				);
 				INFOPLIST_FILE = "Ttel/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -828,6 +896,11 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CURRENT_PROJECT_VERSION = 20180108.01;
 				DEVELOPMENT_TEAM = JX333254R3;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PushServiceExtension",
+				);
 				INFOPLIST_FILE = "Ttel/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -904,6 +977,11 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 20180108.01;
 				DEVELOPMENT_TEAM = JX333254R3;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PushServiceExtension",
+				);
 				INFOPLIST_FILE = "Ttel/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -974,6 +1052,11 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CURRENT_PROJECT_VERSION = 20180108.01;
 				DEVELOPMENT_TEAM = JX333254R3;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PushServiceExtension",
+				);
 				INFOPLIST_FILE = "Ttel/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1024,6 +1107,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = JX333254R3;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1056,6 +1140,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "PushServiceExtension/PushServiceExtension-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1098,6 +1183,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = JX333254R3;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1130,6 +1216,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "PushServiceExtension/PushServiceExtension-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1172,6 +1259,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = JX333254R3;
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1196,6 +1284,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.fclassroom.ttel.PushServiceExtension";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "PushServiceExtension/PushServiceExtension-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1239,6 +1328,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = JX333254R3;
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1263,6 +1353,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.fclassroom.ttel.PushServiceExtension";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "PushServiceExtension/PushServiceExtension-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

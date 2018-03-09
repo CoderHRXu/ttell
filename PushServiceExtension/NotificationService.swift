@@ -11,14 +11,27 @@ import AVFoundation
 
 class NotificationService: UNNotificationServiceExtension {
 
+    // MARK: - Property
     var contentHandler: ((UNNotificationContent) -> Void)?
     var bestAttemptContent: UNMutableNotificationContent?
 
     lazy var speech : AVSpeechSynthesizer = {
-        let speech = AVSpeechSynthesizer.init()
-        speech.delegate = self as AVSpeechSynthesizerDelegate
+        let speech              = AVSpeechSynthesizer.init()
+        speech.delegate         = self as AVSpeechSynthesizerDelegate
         return speech
     }()
+    
+    lazy var iflySpeecher:IFlySpeechSynthesizer = {
+        let speecher            = IFlySpeechSynthesizer.sharedInstance()
+        speecher?.delegate      = self as IFlySpeechSynthesizerDelegate
+        speecher?.setParameter(IFlySpeechConstant.type_CLOUD(), forKey: IFlySpeechConstant.engine_TYPE())
+        speecher?.setParameter("50", forKey: IFlySpeechConstant.volume())
+        speecher?.setParameter("xiaoyan", forKey: IFlySpeechConstant.voice_NAME())
+        speecher?.setParameter("tts.pcm", forKey: IFlySpeechConstant.tts_AUDIO_PATH())
+        return speecher!
+    }()
+    
+    // MARK: - Method
     
     override func didReceive(_ request: UNNotificationRequest, withContentHandler contentHandler: @escaping (UNNotificationContent) -> Void) {
         self.contentHandler = contentHandler
@@ -28,8 +41,8 @@ class NotificationService: UNNotificationServiceExtension {
             // Modify the notification content here...
             print("❤️"+bestAttemptContent.body)
             bestAttemptContent.title = "李云龙❤️"
-            readcontent(content: bestAttemptContent.body)
-            
+//            readcontent(content: bestAttemptContent.body)
+            readContentByIFly(content: bestAttemptContent.body)
         }
     }
     
@@ -43,7 +56,7 @@ class NotificationService: UNNotificationServiceExtension {
     }
 
     
-    func readcontent(content : String) {
+    func readContent(content : String) {
         // 要说的文字
         let speechUtterance = AVSpeechUtterance.init(string: content)
         speechUtterance.rate = AVSpeechUtteranceDefaultSpeechRate
@@ -57,6 +70,17 @@ class NotificationService: UNNotificationServiceExtension {
     func stopRead() {
         
         speech.stopSpeaking(at: .immediate)
+        iflySpeecher.stopSpeaking()
+    }
+    
+    func readContentByIFly(content : String) {
+        #if DEBUG
+            IFlySetting.showLogcat(true)
+        #else
+            IFlySetting.showLogcat(false)
+        #endif
+        IFlySpeechUtility.createUtility("appid=5a9fae53")
+        iflySpeecher.startSpeaking(content)
     }
 }
 
@@ -79,4 +103,13 @@ extension NotificationService : AVSpeechSynthesizerDelegate{
             
         }
     }
+}
+
+extension NotificationService : IFlySpeechSynthesizerDelegate {
+    func onCompleted(_ error: IFlySpeechError!) {
+        print(error.errorDesc)
+        self.contentHandler!(self.bestAttemptContent!)
+    }
+    
+    
 }

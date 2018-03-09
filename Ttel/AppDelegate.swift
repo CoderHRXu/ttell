@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
 
         self.window?.rootViewController = slideMenuController
         self.window?.makeKeyAndVisible()
-        
+//        self.setupXunFei()
         return true
     }
     
@@ -88,6 +88,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         UIApplication.shared.applicationIconBadgeNumber = 0
         
         JPUSHService.setBadge(0)
+    }
+    
+    // MARK: - Method
+    func setupXunFei() {
+        
+        #if DEBUG
+            IFlySetting.showLogcat(true)
+        #else
+            IFlySetting.showLogcat(false)
+        #endif
+        IFlySpeechUtility.createUtility("appid=5a9fae53")
     }
 }
 
