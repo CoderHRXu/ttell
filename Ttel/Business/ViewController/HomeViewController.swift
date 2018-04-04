@@ -257,4 +257,10 @@ extension HomeViewController : LeftMenuDelegate {
         }
     }
     
+    func leftMenuDidClickGotoSetting(leftMenu: LeftMenuViewController) {
+        self.slideMenuController()?.closeLeft()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.4) {
+            self.navigationController?.pushViewController(SettingViewController(), animated: true)
+        }
+    }
 }

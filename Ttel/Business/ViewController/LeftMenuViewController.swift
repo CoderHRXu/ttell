@@ -9,12 +9,23 @@
 import UIKit
 import SlideMenuControllerSwift
 
+
 protocol LeftMenuDelegate : NSObjectProtocol {
     
-    
+    /// 跳转设置帮助
+    ///
+    /// - Parameter leftMenu: menu
     func leftMenuDidClickGotoHelp(leftMenu : LeftMenuViewController)
     
+    /// 跳转设置关于
+    ///
+    /// - Parameter leftMenu: menu
     func leftMenuDidClickGotoAbout(leftMenu : LeftMenuViewController)
+    
+    /// 跳转设置页面
+    ///
+    /// - Parameter leftMenu: menu
+    func leftMenuDidClickGotoSetting(leftMenu : LeftMenuViewController)
 }
 
 
@@ -73,12 +84,17 @@ class LeftMenuViewController: BaseViewController {
     
     fileprivate func gotoNotificationManagement(){
         
+        /*
         let action = UIAlertAction(title: "我知道了", style: .default) { (action : UIAlertAction) in
             
         }
         let alertVC = UIAlertController(title: "暂未开放", message: "程序猿哥哥正在加紧开发啦~", preferredStyle: .alert)
         alertVC.addAction(action)
         self.present(alertVC, animated: true, completion: nil)
+         */
+        if let delegate = delegate {
+            delegate.leftMenuDidClickGotoSetting(leftMenu: self)
+        }
         
     }
     

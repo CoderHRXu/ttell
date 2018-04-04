@@ -26,7 +26,8 @@ extension ApiService:TargetType{
     /// The target's base `URL`.
     var baseURL: URL {
         
-        return ConfigManager.baseURL
+        let urlStr = CacheHandler.sharedInstance.baseUrlString + ":" + CacheHandler.sharedInstance.port + "/apiv1/"
+        return URL.init(string: urlStr)!
     }
     
     /// The path to be appended to `baseURL` to form the full `URL`.

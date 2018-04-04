@@ -10,7 +10,8 @@ import UIKit
 import SlideMenuControllerSwift
 
 //import JPUSHService
-let appKey = "0e660c288a6e368107a160ae"
+//let appKey = "0e660c288a6e368107a160ae"
+let appKey = "ada433ee2a7885d904ee845e"
 let channel = "Publish channel"
 let isProduction = false
 

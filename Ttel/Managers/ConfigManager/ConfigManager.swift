@@ -15,11 +15,11 @@ class ConfigManager {
         get{
             
             #if DEV
-                return URL(string: "http://172.16.88.230:8863/apiv1/")!
+                return URL(string: "http://10.0.3.223:8863/apiv1/")!
                 
             #else
             
-                return URL(string: "https://172.16.88.230:8874/apiv1/")!
+                return URL(string: "https://10.0.2.17:8874/apiv1/")!
                 
             #endif
         }
