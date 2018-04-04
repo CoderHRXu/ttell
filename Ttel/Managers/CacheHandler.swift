@@ -21,10 +21,10 @@ class CacheHandler {
     var baseUrlString: String {
         get{
             let urlStr     = UserDefaults.standard.value(forKey: "baseUrl") as? String
-            return urlStr ?? "https://10.0.3.223:8863/apiv1/"
+            return urlStr ?? "https://10.0.3.223"
         }
         set{
-            UserDefaults.standard.set(baseUrlString, forKey: "baseUrl")
+            UserDefaults.standard.set(newValue, forKey: "baseUrl")
             UserDefaults.standard.synchronize()
         }
     }
@@ -35,7 +35,7 @@ class CacheHandler {
             return port ?? "8863"
         }
         set{
-            UserDefaults.standard.set(port, forKey: "port")
+            UserDefaults.standard.set(newValue, forKey: "port")
             UserDefaults.standard.synchronize()
         }
     }
