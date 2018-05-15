@@ -54,6 +54,11 @@ Deploy a new version to the App Store
 fastlane ios syncCer
 ```
 Synchronize provisioningProfiles(Development,Ad-Hoc,App Store) of all bundle_id. 
+### ios syncPemInfo
+```
+fastlane ios syncPemInfo
+```
+Synchronize Development & APNS certificates of all bundle_id. 
 ### ios cy
 ```
 fastlane ios cy
