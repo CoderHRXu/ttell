@@ -8,31 +8,42 @@ Make sure you have the latest version of the Xcode command line tools installed:
 xcode-select --install
 ```
 
-## Choose your installation method:
-
-| Method                     | OS support                              | Description                                                                                                                           |
-|----------------------------|-----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
-| [Homebrew](http://brew.sh) | macOS                                   | `brew cask install fastlane`                                                                                                          |
-| Installer Script           | macOS                                   | [Download the zip file](https://download.fastlane.tools). Then double click on the `install` script (or run it in a terminal window). |
-| RubyGems                   | macOS or Linux with Ruby 2.0.0 or above | `sudo gem install fastlane -NV`                                                                                                       |
+Install _fastlane_ using
+```
+[sudo] gem install fastlane -NV
+```
+or alternatively using `brew cask install fastlane`
 
 # Available Actions
+### pemInfo
+```
+fastlane pemInfo
+```
+
+
+----
+
 ## iOS
-### ios sit
+### ios test
 ```
-fastlane ios sit
+fastlane ios test
 ```
-Submit a new SIT Build to Ttel server
-### ios uat
+Submit a new TEST Build to pgyer server
+### ios dev
 ```
-fastlane ios uat
+fastlane ios dev
 ```
-Submit a new UAT Build to Ttel server
+Submit a new DEV Build to pgyer server
 ### ios pro
 ```
 fastlane ios pro
 ```
-Submit a new PRO Build to Ttel server
+Submit a new PRO Build to pgyer server
+### ios agent
+```
+fastlane ios agent
+```
+Submit a new Agent Build to pgyer server
 ### ios dep
 ```
 fastlane ios dep
@@ -42,7 +53,12 @@ Deploy a new version to the App Store
 ```
 fastlane ios syncCer
 ```
-
+Synchronize provisioningProfiles(Development,Ad-Hoc,App Store) of all bundle_id. 
+### ios syncPemInfo
+```
+fastlane ios syncPemInfo
+```
+Synchronize Development & APNS certificates of all bundle_id. 
 ### ios cy
 ```
 fastlane ios cy

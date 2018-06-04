@@ -21,7 +21,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.file` struct is generated, and contains static references to 6 files.
+  /// This `R.file` struct is generated, and contains static references to 7 files.
   struct file {
     /// Resource file `AppIcon60x60@3x.png`.
     static let appIcon60x603xPng = Rswift.FileResource(bundle: R.hostingBundle, name: "AppIcon60x60@3x", pathExtension: "png")
@@ -35,6 +35,8 @@ struct R: Rswift.Validatable {
     static let hackStyleHtml = Rswift.FileResource(bundle: R.hostingBundle, name: "hackStyle", pathExtension: "html")
     /// Resource file `particle.html`.
     static let particleHtml = Rswift.FileResource(bundle: R.hostingBundle, name: "particle", pathExtension: "html")
+    /// Resource file `yunlong.mp3`.
+    static let yunlongMp3 = Rswift.FileResource(bundle: R.hostingBundle, name: "yunlong", pathExtension: "mp3")
     
     /// `bundle.url(forResource: "AppIcon60x60@3x", withExtension: "png")`
     static func appIcon60x603xPng(_: Void = ()) -> Foundation.URL? {
@@ -69,6 +71,12 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "particle", withExtension: "html")`
     static func particleHtml(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.particleHtml
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
+    /// `bundle.url(forResource: "yunlong", withExtension: "mp3")`
+    static func yunlongMp3(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.yunlongMp3
       return fileResource.bundle.url(forResource: fileResource)
     }
     

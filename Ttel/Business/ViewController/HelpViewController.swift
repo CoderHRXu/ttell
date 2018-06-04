@@ -29,14 +29,21 @@ class HelpViewController: BaseViewController {
     }
     
     func installCerBtnClicked(){
-        #if DEV
-            UIApplication.shared.openURL(URL(string: "https://172.16.88.230:8873/cer/pubCer/selfSigned_pubCA.cer")!)
-            
-        #endif
         
-        #if PRO
-            UIApplication.shared.openURL(URL(string: "https://172.16.88.230:8874/cer/pubCer/selfSigned_pubCA.cer")!)
-            
-        #endif
+        let urlStr = CacheHandler.sharedInstance.baseUrlString + ":" + CacheHandler.sharedInstance.port + "/cer/pubCer/selfSigned_pubCA.cer"
+        let url = URL.init(string: urlStr)!
+        
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        }
+//        #if DEV
+//            UIApplication.shared.openURL(URL(string: "https://10.0.3.223:8873/cer/pubCer/selfSigned_pubCA.cer")!)
+//
+//        #endif
+//
+//        #if PRO
+//            UIApplication.shared.openURL(URL(string: "https://10.0.2.17:8874/cer/pubCer/selfSigned_pubCA.cer")!)
+//
+//        #endif
     }
 }

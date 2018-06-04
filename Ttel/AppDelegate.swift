@@ -10,7 +10,8 @@ import UIKit
 import SlideMenuControllerSwift
 
 //import JPUSHService
-let appKey = "0e660c288a6e368107a160ae"
+//let appKey = "0e660c288a6e368107a160ae"
+let appKey = "ada433ee2a7885d904ee845e"
 let channel = "Publish channel"
 let isProduction = false
 
@@ -44,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
 
         self.window?.rootViewController = slideMenuController
         self.window?.makeKeyAndVisible()
-        
+//        self.setupXunFei()
         return true
     }
     
@@ -56,7 +57,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         
         JPUSHService.registerDeviceToken(deviceToken)
-        
+        let data = NSData.init(data: deviceToken)
+        let datastr = data.description.replacingOccurrences(of: "<", with: "").replacingOccurrences(of: ">", with: "").replacingOccurrences(of: " ", with: "")
+        print("deviceToken为\n" + datastr)
         var jPushTag = String()
         
         #if SIT
@@ -86,6 +89,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         UIApplication.shared.applicationIconBadgeNumber = 0
         
         JPUSHService.setBadge(0)
+    }
+    
+    // MARK: - Method
+    func setupXunFei() {
+        
+        #if DEBUG
+            IFlySetting.showLogcat(true)
+        #else
+            IFlySetting.showLogcat(false)
+        #endif
+        IFlySpeechUtility.createUtility("appid=5a9fae53")
     }
 }
 

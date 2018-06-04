@@ -1,7 +1,7 @@
-app_identifier "cn.sunfit.ttel" # The bundle identifier of your app
-apple_id "sunfitappleid@163.com" # Your Apple email address
+app_identifier "com.fclassroom.ttel" # The bundle identifier of your app
+apple_id "xuhaoran@fclassroom.com" # Your Apple email address
 
-team_id "6JJXUE7L93" # Developer Portal Team ID
+team_id "JX333254R3" # Developer Portal Team ID
 
 # you can even provide different app identifiers, Apple IDs and team names per lane:
 # More information: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Appfile.md

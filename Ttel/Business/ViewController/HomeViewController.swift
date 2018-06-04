@@ -30,7 +30,6 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     
     // MARK:- lifecycle
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         self.initNavBar()
         self.initData()
@@ -69,8 +68,8 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
 
         self.appsTableView.register(R.nib.appItemCell)
         
-        let loadingView = DGElasticPullToRefreshLoadingViewCircle()
-        loadingView.tintColor = UIColor.white
+        let loadingView         = DGElasticPullToRefreshLoadingViewCircle()
+        loadingView.tintColor   = UIColor.white
         
         appsTableView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
             
@@ -80,15 +79,15 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         
         appsTableView.dg_setPullToRefreshFillColor(ColorFormatter().format("46BBFF"))
         appsTableView.dg_setPullToRefreshBackgroundColor(appsTableView.backgroundColor!)
-        
-        self.appsTableView.backgroundColor              = UIColor(patternImage: UIImage(named: "background")!)
+        print(R.image.background()!.size.width)
+        appsTableView.backgroundColor                   = UIColor.init(patternImage: R.image.background()!)
         self.setWebBackgroundView(tableView: self.appsTableView)
         
         let leftVC                                       = self.slideMenuController()?.leftViewController as! LeftMenuViewController
         leftVC.delegate                                  = self
         slideMenuController()?.leftPanGesture?.isEnabled = false
         if #available(iOS 11.0, *) {
-            self.appsTableView.contentInsetAdjustmentBehavior = .never
+            appsTableView.contentInsetAdjustmentBehavior = .never
         } else {
             self.automaticallyAdjustsScrollViewInsets = false
         }
@@ -257,4 +256,10 @@ extension HomeViewController : LeftMenuDelegate {
         }
     }
     
+    func leftMenuDidClickGotoSetting(leftMenu: LeftMenuViewController) {
+        self.slideMenuController()?.closeLeft()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.4) {
+            self.navigationController?.pushViewController(SettingViewController(), animated: true)
+        }
+    }
 }

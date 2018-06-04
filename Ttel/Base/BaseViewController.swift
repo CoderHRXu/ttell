@@ -34,16 +34,13 @@ class BaseViewController: UIViewController {
     // 加入tableview 背景动画
     func setWebBackgroundView(tableView:UITableView) {
         
-        let webView = UIWebView.init(frame: self.view.frame)
-        
-        let path = Bundle.main.path(forResource: "particle", ofType: "html")
-        let url = URL.init(fileURLWithPath: path!)
-        
-        webView.scrollView.isScrollEnabled = false
-        
-        webView.backgroundColor = UIColor.clear
-        webView.isOpaque = false
-        
+        let webView                         = UIWebView.init(frame: self.view.frame)
+        print(self.view.frame.width)
+        let path                            = Bundle.main.path(forResource: "particle", ofType: "html")
+        let url                             = URL.init(fileURLWithPath: path!)
+        webView.scrollView.isScrollEnabled  = false
+        webView.backgroundColor             = UIColor.clear
+        webView.isOpaque                    = false
         webView.loadRequest(URLRequest.init(url: url))
         
         tableView.backgroundView = webView

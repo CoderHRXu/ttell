@@ -34,22 +34,26 @@ PODS:
     - R.swift.Library (~> 3.0.2)
   - R.swift.Library (3.0.2)
   - Result (3.2.2)
+  - RxCocoa (3.5.0):
+    - RxSwift (~> 3.4)
   - RxSwift (3.4.1)
   - SlideMenuControllerSwift (3.0.2)
 
 DEPENDENCIES:
-  - Alamofire
+  - Alamofire (~> 4.4.0)
   - DGElasticPullToRefresh
   - Format
   - HandyJSON (~> 1.7.0)
   - JPush
   - Kingfisher
-  - Moya
-  - Moya/RxSwift
+  - Moya (~> 8.0.4)
+  - Moya/RxSwift (~> 8.0.4)
   - PKHUD (~> 4.2)
-  - PromiseKit
+  - PromiseKit (~> 4.2.2)
   - PromiseKit/Alamofire
   - R.swift
+  - RxCocoa
+  - RxSwift
   - SlideMenuControllerSwift
 
 SPEC CHECKSUMS:
@@ -66,9 +70,10 @@ SPEC CHECKSUMS:
   R.swift: 207a372a2b5977caef440c696a368009460641d1
   R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
   Result: 4edd39003fdccf281d418ee1b006571f70123250
+  RxCocoa: a0a09f45d0e5b48ecb6a4a7b4b4c89c88d3f633f
   RxSwift: 656f8fbeca5bc372121a72d9ebdd3cd3bc0ffade
   SlideMenuControllerSwift: 16001e1fd9963fd089fa6c91dbe18d4c148f0ce9
 
-PODFILE CHECKSUM: b753b0c68033d161acf5784f6039275b9e91f3ad
+PODFILE CHECKSUM: 63dba449e4c642bfe8d91b818179f4c72b33a9c3
 
 COCOAPODS: 1.4.0
