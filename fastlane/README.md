@@ -24,16 +24,21 @@ fastlane pemInfo
 ----
 
 ## iOS
-### ios test
-```
-fastlane ios test
-```
-Submit a new TEST Build to pgyer server
 ### ios dev
 ```
 fastlane ios dev
 ```
 Submit a new DEV Build to pgyer server
+### ios sit
+```
+fastlane ios sit
+```
+Submit a new SIT Build to pgyer server
+### ios uat
+```
+fastlane ios uat
+```
+Submit a new UAT Build to pgyer server
 ### ios pro
 ```
 fastlane ios pro
