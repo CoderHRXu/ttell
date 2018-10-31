@@ -15,7 +15,7 @@ PODS:
   - Moya/RxSwift (11.0.2):
     - Moya/Core
     - RxSwift (~> 4.0)
-  - PKHUD (4.2.3)
+  - PKHUD (5.2.0)
   - PromiseKit (6.5.2):
     - PromiseKit/CorePromise (= 6.5.2)
     - PromiseKit/Foundation (= 6.5.2)
@@ -46,7 +46,7 @@ DEPENDENCIES:
   - Kingfisher
   - Moya
   - Moya/RxSwift
-  - PKHUD (~> 4.2)
+  - PKHUD (~> 5.0)
   - PromiseKit
   - PromiseKit/Alamofire
   - R.swift
@@ -82,7 +82,7 @@ SPEC CHECKSUMS:
   JPush: 25dd9013fbe106082c14f9f30a82364ee98852fb
   Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
   Moya: a725035953bc1c0eb1be505ab903984501d82440
-  PKHUD: c7692163a09875cbf15827dc581df3c5cf7f1015
+  PKHUD: dd5357ac65f26115c35c4a68e9b328053326c5fe
   PromiseKit: 27c1601bfb73405871b805bcb8cf7e55c4dad3db
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
@@ -91,6 +91,6 @@ SPEC CHECKSUMS:
   RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
   SlideMenuControllerSwift: 16001e1fd9963fd089fa6c91dbe18d4c148f0ce9
 
-PODFILE CHECKSUM: 1dd56a2afee27e7decfff8f2697eea7666ce84e5
+PODFILE CHECKSUM: 30865a917a23cd6304dcaf2af0ec51bbb8fa9ef9
 
 COCOAPODS: 1.5.3

@@ -31,7 +31,7 @@ target 'Ttel' do
     
     pod 'R.swift'
     
-    pod 'PKHUD', '~> 4.2'
+    pod 'PKHUD', '~> 5.0'
 
     pod 'SlideMenuControllerSwift'
 
