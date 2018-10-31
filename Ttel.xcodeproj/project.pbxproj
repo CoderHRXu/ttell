@@ -19,7 +19,6 @@
 		59A2263B1ED3EEEC0098E734 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A226181ED3EEEC0098E734 /* SettingViewController.swift */; };
 		59A2263C1ED3EEEC0098E734 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59A226191ED3EEEC0098E734 /* SettingViewController.xib */; };
 		59A2263E1ED3EEEC0098E734 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59A2261F1ED3EEEC0098E734 /* Assets.xcassets */; };
-		59A2263F1ED3EEEC0098E734 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 59A226201ED3EEEC0098E734 /* Info.plist */; };
 		59A226411ED3EEEC0098E734 /* canvas-particle.js in Resources */ = {isa = PBXBuildFile; fileRef = 59A226271ED3EEEC0098E734 /* canvas-particle.js */; };
 		59A226421ED3EEEC0098E734 /* hackStyle.html in Resources */ = {isa = PBXBuildFile; fileRef = 59A226281ED3EEEC0098E734 /* hackStyle.html */; };
 		59A226431ED3EEEC0098E734 /* particle.html in Resources */ = {isa = PBXBuildFile; fileRef = 59A226291ED3EEEC0098E734 /* particle.html */; };
@@ -65,6 +64,8 @@
 		AD3722E620528BB000F45382 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59A2267B1ED430CA0098E734 /* Photos.framework */; };
 		AD3722E820528BC500F45382 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3722E720528BC500F45382 /* CoreTelephony.framework */; };
 		AD3722EA20528C1300F45382 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3722E920528C1300F45382 /* SystemConfiguration.framework */; };
+		ADCA6086218951F200E70422 /* Observable+ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCA6084218951F200E70422 /* Observable+ParserError.swift */; };
+		ADCA6087218951F200E70422 /* Observable+JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCA6085218951F200E70422 /* Observable+JSONParser.swift */; };
 		E5E08076234B98C62A79CC4F /* Pods_Ttel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D195A6BDB2A29810977555D7 /* Pods_Ttel.framework */; };
 		ED647A4E1ED6C9A3007536A8 /* SystemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED647A4D1ED6C9A3007536A8 /* SystemInfo.swift */; };
 		ED7F16D01F61228900C0C2A2 /* AppDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A226121ED3EEEC0098E734 /* AppDetailViewController.swift */; };
@@ -162,6 +163,8 @@
 		AD3722DB20527EA800F45382 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		AD3722E720528BC500F45382 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		AD3722E920528C1300F45382 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		ADCA6084218951F200E70422 /* Observable+ParserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+ParserError.swift"; sourceTree = "<group>"; };
+		ADCA6085218951F200E70422 /* Observable+JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+JSONParser.swift"; sourceTree = "<group>"; };
 		D195A6BDB2A29810977555D7 /* Pods_Ttel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ttel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC2FA50E27D2F5A8EB186C5E /* Pods-Ttel.debug-pro.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ttel.debug-pro.xcconfig"; path = "Pods/Target Support Files/Pods-Ttel/Pods-Ttel.debug-pro.xcconfig"; sourceTree = "<group>"; };
 		ED647A4D1ED6C9A3007536A8 /* SystemInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemInfo.swift; sourceTree = "<group>"; };
@@ -423,6 +426,8 @@
 			children = (
 				ED8C65F41EDE5E60005CCA32 /* NetworkPlugin.swift */,
 				59DAC9B61ED666D50009F0F6 /* Observable+HandJSON.swift */,
+				ADCA6085218951F200E70422 /* Observable+JSONParser.swift */,
+				ADCA6084218951F200E70422 /* Observable+ParserError.swift */,
 			);
 			path = NetManager;
 			sourceTree = "<group>";
@@ -471,7 +476,6 @@
 				59C64A6F1E9E2D1300474F05 /* Frameworks */,
 				59C64A701E9E2D1300474F05 /* Resources */,
 				77519F6A8AF69E26C300E955 /* [CP] Embed Pods Frameworks */,
-				345735C94CBD2930172D9F02 /* [CP] Copy Pods Resources */,
 				23E6FF911FAAEE3C002A4A2D /* Update build number with buldTime */,
 				ADC2B2FD204E918600F76C45 /* Embed App Extensions */,
 			);
@@ -591,7 +595,6 @@
 				595A0C7D1EDFC2230047816E /* CerInstallation.jpg in Resources */,
 				2355F3E11F7CF214002F3D68 /* AboutViewController.xib in Resources */,
 				AD187371204FDBB700495539 /* yunlong.mp3 in Resources */,
-				59A2263F1ED3EEEC0098E734 /* Info.plist in Resources */,
 				59A2263C1ED3EEEC0098E734 /* SettingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -619,21 +622,6 @@
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "# Update build number with buldTime\nbuildNumber=$(date +%Y%m%d%H%M%S)\necho \"Updating build number to $buildNumber\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}.dSYM/Contents/Info.plist\"";
-		};
-		345735C94CBD2930172D9F02 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Ttel/Pods-Ttel-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		44A4C9BB9EDCCEF1E586FF9B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -664,7 +652,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" \"$SRCROOT/Ttel/Supporting Files/\"";
+			shellScript = "echo \"R.swift update\"\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/Ttel/SupportingFiles\"\n";
 		};
 		77519F6A8AF69E26C300E955 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -726,6 +714,8 @@
 				59A2263B1ED3EEEC0098E734 /* SettingViewController.swift in Sources */,
 				59A226751ED406080098E734 /* ConfigManager.swift in Sources */,
 				ED647A4E1ED6C9A3007536A8 /* SystemInfo.swift in Sources */,
+				ADCA6087218951F200E70422 /* Observable+JSONParser.swift in Sources */,
+				ADCA6086218951F200E70422 /* Observable+ParserError.swift in Sources */,
 				EDAE860A1ED816F6006C37CF /* SendEmailViewController.swift in Sources */,
 				ED7F16D81F61327000C0C2A2 /* HelpViewController.swift in Sources */,
 				ED7F16D01F61228900C0C2A2 /* AppDetailViewController.swift in Sources */,

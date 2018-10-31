@@ -245,7 +245,7 @@ class SendEmailViewController: BaseViewController ,UITableViewDataSource ,UITabl
                 appIds.append(item.itemId);
             }
             
-            appVModel.SendEmailToTester(itemIds: appIds, receivers: self.emailAddressesArr) .then {
+            appVModel.SendEmailToTester(itemIds: appIds, receivers: self.emailAddressesArr) .done {
                 (result) -> Void in
                 
                 _ = result;
@@ -256,11 +256,9 @@ class SendEmailViewController: BaseViewController ,UITableViewDataSource ,UITabl
                 
                 self.popToLastVC();
                 
-                }.always {
-                    
-                }.catch{_ in 
+                }.catch{_ in
                     HUD.hide(afterDelay: 0);
-            }
+                }
         }
     }
     

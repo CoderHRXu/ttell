@@ -11,13 +11,13 @@ target 'Ttel' do
 
     pod 'Kingfisher' #A lightweight, pure-Swift library for downloading and caching images from the web.
 
-    pod 'Alamofire', '~> 4.4.0'
+    pod 'Alamofire'
 
-    pod 'Moya', '~> 8.0.4'
+    pod 'Moya'
 
-    pod 'Moya/RxSwift', '~> 8.0.4'
+    pod 'Moya/RxSwift'
 
-    pod 'HandyJSON','~> 1.7.0'
+    pod 'HandyJSON'
 
     pod 'DGElasticPullToRefresh'
 
@@ -25,7 +25,7 @@ target 'Ttel' do
 
     pod 'Format'
     
-    pod 'PromiseKit','~> 4.2.2'
+    pod 'PromiseKit'
     
     pod 'PromiseKit/Alamofire'
     

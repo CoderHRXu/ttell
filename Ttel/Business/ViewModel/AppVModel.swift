@@ -15,32 +15,32 @@ class AppVModel: BaseViewModel {
     
     func listAllProds(pageNo:Int, pageSize:Int) -> Promise<[AppItem]> {
     
-       return Promise(resolvers: { (resolve, reject) in
+       return Promise(resolver: { (result) in
         
         self.sendRequest(target: ApiService.ListAllProds(pageNo: pageNo, pageSize: pageSize))
             .mapModelArray(AppItem.self)
             .subscribe(onNext: {
-                resolve($0)
+                result.fulfill($0)
             }, onError: {
-                reject($0)
+                result.reject($0)
             })
-            .addDisposableTo(self.disposeBag)
+            .disposed(by: self.disposeBag)
 
         })
     }
     
     func ListSpecificProd(prodType:Int, envType:Int, pageNo:Int, pageSize:Int) -> Promise< [[String:[AppItem]]]> {
-        return Promise(resolvers: { resolve, reject in
+        return Promise(resolver: { result in
             
             self.sendRequest(target: ApiService.ListSpecificProd(prodType: prodType, envType: envType, pageNo: pageNo, pageSize: pageSize))
                 .mapModelArray(AppItem.self)
                 .subscribe(onNext: {
                     let sortedArr = self.sortAppArray(appItems:$0)
-                    resolve(sortedArr)
+                    result.fulfill(sortedArr)
                 }, onError: {
-                    reject($0)
+                    result.reject($0)
                 })
-                .addDisposableTo(self.disposeBag)
+                .disposed(by: self.disposeBag)
   
         })
         
@@ -48,31 +48,31 @@ class AppVModel: BaseViewModel {
     
     func SendEmailToTester(itemIds:Array<String>, receivers:Array<String>) -> Promise<Any> {
         
-        return Promise(resolvers: { resolve, reject in
+        return Promise(resolver: { result in
             
             self.sendRequest(target: ApiService.SendEmailToTester(itemIds:itemIds,emailAddresses:receivers))
                 .subscribe(onNext: { res in
                     
-                    resolve(true)
+                    result.fulfill(true)
                 }, onError: {
-                    reject($0)
+                    result.reject($0)
                 })
-                .addDisposableTo(self.disposeBag)
+                .disposed(by:self.disposeBag)
         })
     }
     
     func deleteItem(itemId: String) -> Promise<Any> {
         
-        return Promise(resolvers: { resolve, reject in
+        return Promise(resolver: { result in
             
             self.sendRequest(target: ApiService.deleteItem(itemId: itemId))
                 .subscribe(onNext: { res in
                     
-                    resolve(true)
+                    result.fulfill(true)
                 }, onError: {
-                    reject($0)
+                    result.reject($0)
                 })
-                .addDisposableTo(self.disposeBag)
+                .disposed(by: self.disposeBag)
         })
     }
     

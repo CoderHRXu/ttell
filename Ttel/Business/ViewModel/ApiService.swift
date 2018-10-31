@@ -22,6 +22,10 @@ enum ApiService {
 }
 
 extension ApiService:TargetType{
+    var headers: [String : String]? {
+        return nil
+    }
+    
     
     /// The target's base `URL`.
     var baseURL: URL {
@@ -98,7 +102,7 @@ extension ApiService:TargetType{
     /// The type of HTTP task to be performed.
     var task: Task {
         
-        return .request
+        return .requestPlain
     }
     
     /// Whether or not to perform Alamofire validation. Defaults to `false`.

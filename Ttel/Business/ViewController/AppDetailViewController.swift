@@ -12,8 +12,9 @@ import DGElasticPullToRefresh
 import Format
 import Alamofire
 import Moya
+import PromiseKit
 
-class AppDetailViewController: BaseViewController ,UITableViewDataSource ,UITableViewDelegate{
+class AppDetailViewController: BaseViewController {
     
     var prodTypeNum = Int()
     var envTypeNum = Int()
@@ -127,7 +128,7 @@ class AppDetailViewController: BaseViewController ,UITableViewDataSource ,UITabl
     // MARK: - network
     func requestAppDetail() {
         
-        appVModel.ListSpecificProd(prodType: self.prodTypeNum, envType: self.envTypeNum, pageNo: 1, pageSize: 100).then{
+        appVModel.ListSpecificProd(prodType: self.prodTypeNum, envType: self.envTypeNum, pageNo: 1, pageSize: 100).done{
             (items) -> Void in
             
             self.formattedDataArr = items
@@ -140,10 +141,13 @@ class AppDetailViewController: BaseViewController ,UITableViewDataSource ,UITabl
                 }
             }
             
-            }.always {
+            }.catch({ (err) in
+                print(err)
+            }).finally {
                 self.deatilTableView.dg_stopLoading()
                 self.deatilTableView.reloadData()
-        }
+            }
+        
         
     }
     
@@ -200,6 +204,96 @@ class AppDetailViewController: BaseViewController ,UITableViewDataSource ,UITabl
         self.deatilTableView.reloadData()
     }
     
+    
+   
+    
+    // MARK: - click actions
+    @IBAction func SITBtnClicked(_ sender: UIButton) {
+        
+        self.envTypeNum = 1
+        
+        self.updateViewValues(sender: sender)
+    }
+    @IBAction func UATBtnClicked(_ sender: UIButton) {
+        
+        self.envTypeNum = 2
+        
+        self.updateViewValues(sender: sender)
+    }
+    @IBAction func PROBtnClicked(_ sender: UIButton) {
+        
+        self.envTypeNum = 3
+        
+        self.updateViewValues(sender: sender)
+    }
+    @IBAction func ARCBtnClicked(_ sender: UIButton) {
+        
+        self.envTypeNum = 4
+        
+        self.updateViewValues(sender: sender)
+    }
+    
+    
+    func updateViewValues(sender:UIButton!) {
+        
+        UIView.animate(withDuration: 0.2, animations: {
+            
+            self.blueLineLabel.center.x = sender.center.x
+        })
+        
+        self.blueLineLabel.center.x = sender.center.x
+        
+        for i:Int in 1...4 {
+            
+            let btn = view.viewWithTag(i) as! UIButton
+            
+            btn.setTitleColor(ColorFormatter().format("333333"), for: UIControlState.normal)
+        }
+        
+        sender .setTitleColor(ColorFormatter().format("2A9FFE"), for: UIControlState.normal)
+        
+        self.initData()
+    }
+    
+    // MARK: - jump to emailVC
+    func jumpToSendEmailVC(sender:UIButton) {
+        
+        let sendEmailVC = SendEmailViewController(nib: R.nib.sendEmailViewController);
+        
+        sendEmailVC.prodTypeNum = self.prodTypeNum;
+        
+        sendEmailVC.versionStr  = self.versionArr[(sender.tag - 100)];
+        
+        var itemArr = Array<AppItem>();
+        
+        for dict in self.formattedDataArr {
+            
+            for (key,value) in dict {
+                
+                if key == sendEmailVC.versionStr {
+                    
+                    for item in value {
+                        
+                        itemArr.append(item);
+                    }
+                }
+            }
+        }
+        
+        sendEmailVC.itemsArr = itemArr;
+        
+        
+        self.navigationController?.pushViewController(sendEmailVC, animated: true);
+    }
+    
+    // MARK: - deinit
+    deinit {
+        
+        deatilTableView?.dg_removePullToRefresh()
+    }
+}
+
+extension AppDetailViewController : UITableViewDataSource, UITableViewDelegate{
     
     // MARK: - tableview datasource & delegate
     
@@ -329,103 +423,27 @@ class AppDetailViewController: BaseViewController ,UITableViewDataSource ,UITabl
         
         self.deleteItemRequest(itemId: (cell.appItem?.itemId)!)
     }
-    
-    // MARK: - click actions
-    @IBAction func SITBtnClicked(_ sender: UIButton) {
-        
-        self.envTypeNum = 1
-        
-        self.updateViewValues(sender: sender)
-    }
-    @IBAction func UATBtnClicked(_ sender: UIButton) {
-        
-        self.envTypeNum = 2
-        
-        self.updateViewValues(sender: sender)
-    }
-    @IBAction func PROBtnClicked(_ sender: UIButton) {
-        
-        self.envTypeNum = 3
-        
-        self.updateViewValues(sender: sender)
-    }
-    @IBAction func ARCBtnClicked(_ sender: UIButton) {
-        
-        self.envTypeNum = 4
-        
-        self.updateViewValues(sender: sender)
-    }
-    
-    
-    func updateViewValues(sender:UIButton!) {
-        
-        UIView.animate(withDuration: 0.2, animations: {
-            
-            self.blueLineLabel.center.x = sender.center.x
-        })
-        
-        self.blueLineLabel.center.x = sender.center.x
-        
-        for i:Int in 1...4 {
-            
-            let btn = view.viewWithTag(i) as! UIButton
-            
-            btn.setTitleColor(ColorFormatter().format("333333"), for: UIControlState.normal)
-        }
-        
-        sender .setTitleColor(ColorFormatter().format("2A9FFE"), for: UIControlState.normal)
-        
-        self.initData()
-    }
-    
-    // MARK: - jump to emailVC
-    func jumpToSendEmailVC(sender:UIButton) {
-        
-        let sendEmailVC = SendEmailViewController(nib: R.nib.sendEmailViewController);
-        
-        sendEmailVC.prodTypeNum = self.prodTypeNum;
-        
-        sendEmailVC.versionStr  = self.versionArr[(sender.tag - 100)];
-        
-        var itemArr = Array<AppItem>();
-        
-        for dict in self.formattedDataArr {
-            
-            for (key,value) in dict {
-                
-                if key == sendEmailVC.versionStr {
-                    
-                    for item in value {
-                        
-                        itemArr.append(item);
-                    }
-                }
-            }
-        }
-        
-        sendEmailVC.itemsArr = itemArr;
-        
-        
-        self.navigationController?.pushViewController(sendEmailVC, animated: true);
-    }
-    
-    // MARK: - deinit
-    deinit {
-        
-        deatilTableView?.dg_removePullToRefresh()
-    }
 }
 
 extension AppDetailViewController {
     
     func deleteItemRequest(itemId: String) {
         
-        self.appVModel.deleteItem(itemId: itemId).then { (item) -> Void in
+//        self.appVModel.deleteItem(itemId: itemId).then { (item) -> Void in
+//
+//            print("删除成功--->",itemId)
+//            self.requestAppDetail()
+//            }.catch { (error) in
+//
+//        }
+        self.appVModel.deleteItem(itemId: itemId).then { (item) ->  Promise< [[String:[AppItem]]]> in
+             print("删除成功--->",itemId)
+            return self.appVModel.ListSpecificProd(prodType: self.prodTypeNum, envType: self.envTypeNum, pageNo: self.currentPageNum, pageSize: self.pageSizeNum)
             
-            print("删除成功--->",itemId)
-            self.requestAppDetail()
-            }.catch { (error) in
+            }.done({ (detail) in
                 
+            }).catch{ (error) in
+             print("删除失败--->",itemId)
         }
     }
 }

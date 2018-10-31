@@ -25,14 +25,14 @@ class BaseViewModel {
     
     func sendRequest<T:TargetType>(target:T) -> Observable<Response>{
         
-        let newEndpointClosure = { (target: T) -> Endpoint<T> in
+        let newEndpointClosure = { (target: T) -> Endpoint in
             
             let URL = target.baseURL.appendingPathComponent(target.path).absoluteString;
             
-            let endpoint = Endpoint<T>(url: URL,
-                                       sampleResponseClosure: {.networkResponse(200, target.sampleData)},
-                                       method: target.method,
-                                       parameters: target.parameters);
+            let endpoint = Endpoint.init(url: URL, sampleResponseClosure: { () -> EndpointSampleResponse in
+                .networkResponse(200, target.sampleData)
+            }, method: target.method, task: target.task, httpHeaderFields: target.headers)
+            
             
             let sysInfo = SystemInfo().getSystemInfo();
             
@@ -47,10 +47,24 @@ class BaseViewModel {
             return newEndPoint;
         }
         
-        let newProvider = RxMoyaProvider<T>(endpointClosure: newEndpointClosure, plugins:[PluginEx(),LoggerPlugin()]);
+        let newProvider = MoyaProvider<T>(endpointClosure: newEndpointClosure, plugins:[PluginEx(),LoggerPlugin()]);
         
-        return newProvider.request(target).filterSuccessfulStatusCodes()
-
+        return Observable<Response>.create { (observer) -> Disposable in
+            
+            let cancellableToken = newProvider.request(target, completion: { (result) in
+                switch result {
+                case let .success(response):
+                    observer.onNext(response)
+                    observer.onCompleted()
+                case let .failure(error):
+                    observer.onError(error)
+                }
+            })
+            
+            return Disposables.create {
+                cancellableToken.cancel()
+            }
+            }.parseError()
     }
 }
 

@@ -168,19 +168,21 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     func queryAppList() {
         
         
-        appVModel.listAllProds(pageNo: 1, pageSize: 15).then { [weak self] items -> Void in
+        appVModel.listAllProds(pageNo: 1, pageSize: 15).done { [weak self] items -> Void in
             print(items)
             
             self?.appList = items
             
             self?.checkAppVersion();
             
-            }.catch { (error) in
-                print("error->\(error)")
-            }.always {
+            }.catch({ (err) in
+                print("error->\(err)")
+            })
+            .finally({
                 self.appsTableView.reloadData()
                 self.appsTableView.dg_stopLoading()
-        }
+            })
+        
     }
     
     func checkAppVersion() {
